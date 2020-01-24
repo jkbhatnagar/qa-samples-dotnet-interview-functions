@@ -1,0 +1,279 @@
+using System;
+
+namespace HelloWorld
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {
+      Console.WriteLine("Hello World!");    
+    }
+  }
+}
+
+const int myNum = 15;
+int myNum = 5; //-2,147,483,648 to 2,147,483,647
+long myLong = 15000000000L //-9,223,372,036,854,775,808 to 9,223,372,036,854,775,807
+
+float myFloatNum = 5.99F;
+double myNum = 19.99D;
+
+char myLetter = 'D';
+string myText = "Hello";
+
+bool myBool = true;
+
+int x = 5, y = 6, z = 50;
+
+Implicit Casting (automatically) - converting a smaller type to a larger type size
+char -> int -> long -> float -> double
+int myInt = 9;
+double myDouble = myInt;
+
+Explicit Casting (manually) - converting a larger type to a smaller size type
+double -> float -> long -> int -> char
+double myDouble = 9.78;
+int myInt = (int) myDouble; // Outputs 9
+
+Console.WriteLine(Convert.ToString(myInt));    // convert int to string
+Console.WriteLine(Convert.ToDouble(myInt));    // convert int to double
+Console.WriteLine(Convert.ToInt32(myDouble));  // convert double to int
+Console.WriteLine(Convert.ToString(myBool));   // convert bool to string
+
+Console.WriteLine("Enter username:");
+Console.WriteLine("{0}The lowercase of these values is:", Environment.NewLine); 
+string userName = Console.ReadLine();
+
+OPERATORS
+x/y -> 10/2 = 5
+x%y -> 10%3 = 1
+
+STRING
+bool string.Equals(string str1, string str2)
+value = value.ToLower(); 
+value = value.ToUpper(); 
+value = value.Empty;
+value = value.IsNullOrEmpty();
+value = value.IsNullOrWhiteSpace();
+int length = value.Length;
+
+
+int result = String.Compare(stringUpper, stringLower, ignorecase)
+int x = String.Compare("case1", "Case1", false); //x = -1 (no match), 0 (matches), 1 (inexact match)
+
+bool x = String.Equals("HTTP", "http", StringComparison.OrdinalIgnoreCase)
+string result = Concat (object arg0, object arg1, object arg2, object arg3);
+bool b = s1.Contains(s2);
+int index = s1.IndexOf(s2); // index >= 0 means contains; -1 means not
+bool result = word.Equals(other)
+string result = value.Trim();
+errString.Replace("docment", "document");
+s.Substring(indexStart, [indexEnd]);
+s.Remove(indexStart, [indexEnd]);
+cat.LastIndexOf(CapitalAWithRing, StringComparison.OrdinalIgnoreCase);
+
+TrimEnd(), TrimStart(), 
+
+string str = "012wxyz789";
+    char[] arr;
+    arr = str.ToCharArray();
+
+char[] charsToTrim = { '*', ' ', '\''};
+string result = value.Trim(charsToTrim);
+
+StringBuilder s2 = new StringBuilder("Geeks"); 
+s2.Append("forGeeks"); 
+
+
+STRING SPLIT
+    String str = "Geeks, For Geeks"; 
+  
+    char[] spearator = { ',', ' ' }; 
+
+    // using the method 
+    String[] strlist = str.Split(spearator,  
+        StringSplitOptions.RemoveEmptyEntries); 
+
+    foreach(String s in strlist) 
+    { 
+        Console.WriteLine(s); 
+    } 
+
+
+
+string s = String.Format("It is now {0:d} at {0:t}", DateTime.Now);
+// Output similar to: 'It is now 4/10/2015 at 10:04 AM'
+string output = String.Format("At {0} in {1}, the temperature was {2} degrees.", dat, city, temp);
+
+// TYPE OF
+object obj = "Hello"; 
+Type b1 = typeof(object);   //Compile time
+Type b2 = obj.GetType();    //Run time
+
+// NULL
+Int? someID = null;
+If(someID.HasVAlue)
+{
+}
+
+//ENUM
+enum Days{Sun,Mon,tue,Wed,thu,Fri,Sat};
+Console.Write(Days.Sun);
+
+
+
+//DECISION
+switch (expression) {
+  case value1:
+      break;
+
+  case value2:
+      break;
+
+  default:
+}
+
+Int32 value=3,i=0;
+while(i<value)
+{
+  Console.WriteLine(i);
+  i=i+1;
+}
+
+for(Int32 i=0;i<3;i++)
+{
+  Console.WriteLine(i);
+}
+
+
+// STRUCT
+
+public struct Person 
+{ 
+    public string Name; 
+    public int Age; 
+    public int Weight;   
+}
+
+Person P1; 
+        P1.Name = "Keshav Gupta"; 
+        P1.Age = 21; 
+        P1.Weight = 80; 
+
+// INTERFACE and CLASSES
+
+public interface TestInterface
+ {
+  void SetTutorial(int pID, string pName);
+  String GetTutorial();
+ }
+
+public class Guru99Tutorial : TestInterface
+ {
+  protected int TutorialID;
+  protected string TutorialName;
+
+public Guru99Tutorial()
+  {
+   TutorialID=0;
+   TutorialName="Default";
+  }
+
+  public void SetTutorial(int pID, string pName)
+  {
+   TutorialID = pID;
+   TutorialName = pName;
+  }
+
+  public String GetTutorial()
+  {
+   return TutorialName;
+  }
+
+
+// SINGLETON
+Public sealed class Singleton
+{
+Private static readonly Singleton _instance = new Singleton();
+}
+
+
+
+// DELEGATES AND ACTIONS
+
+public delegate void my_delegate(int p, int q); 
+  
+    // Method 
+    public static void myfun(int p, int q) 
+    { 
+        Console.WriteLine(p - q); 
+    } 
+  
+    // Main method 
+    static public void Main() 
+    { 
+  
+        // Creating object of my_delegate 
+        my_delegate obj = myfun; 
+        obj(10, 5); 
+    } 
+
+
+
+public static void myfun(int p, int q) 
+    { 
+        Console.WriteLine(p - q); 
+    } 
+  
+    // Main method 
+    static public void Main() 
+    { 
+  
+        // Using Action delegate 
+        // Here, Action delegate  
+        // contains two input parameters 
+        Action<int, int> val = myfun; 
+        val(20, 5); 
+    } 
+
+
+Action<string> val = str = > Console.WriteLine(str); 
+val("GeeksforGeeks"); 
+
+
+
+
+public delegate int my_delegate(int s, int d, int f, int g); 
+public static int mymethod(int s, int d, int f, int g) 
+{ 
+    return s * d * f * g; 
+} 
+  
+static public void Main() 
+{ 
+
+    my_delegate obj = mymethod; 
+    Console.WriteLine(obj(12, 34, 35, 34)); 
+} 
+
+MISC
+readonly - you can assign the variable only when you declare a variable or in a constructor of the same class in which it is declared.
+ref & out parameters - An argument passed as ref must be initialized before passing to the method whereas out parameter needs not to be initialized before passing to a method.
+'using' statement - obtain a resource and process it and then automatically dispose of when the execution of the block completed.
+Serialization - process of converting an object into a stream of bytes is called Serialization. For an object to be serializable, it should implement ISerialize Interface. De-serialization is the reverse process of creating an object from a stream of bytes.
+Protected Internal variables/methods - accessible within the same assembly and also from the classes that are derived from this parent class.
+Dispose() and Finalize() are used for disposing objects, but Finalize doesn't assure the garbage collection of an object.
+Array and ArrayList allows duplicates. To avoid duplicates, use HashSets.
+
+
+
+
+
+EXCEPTIONS
+
+throw new ArgumentNullException("substring", "substring cannot be null.");
+throw new ArgumentException("comp is not a member of StringComparison", "comp");
+
+ArgumentException, ArgumentNullException , ArgumentOutOfRangeException, ArithmeticException, DivideByZeroException ,
+OverflowException , IndexOutOfRangeException ,InvalidCastException ,InvalidOperationException , IOEndOfStreamException , 
+NullReferenceException , OutOfMemoryException , StackOverflowException etc.
